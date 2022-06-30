@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace tas.Gabos
 {
-    internal interface IEnemy : IEntity
+    public interface IEnemy : IEntity
     {
 
         void MoveForward();

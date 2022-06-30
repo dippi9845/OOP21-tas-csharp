@@ -20,7 +20,7 @@ namespace tas.Filippo_Di_Pietro.ITower
 
     public abstract class AbstractBasicTower : ITower
     {
-        AbstractBasicTower(Position pos, int damage, int radius, int delay, int cost, string towerName, List<IEnemy> enemyList)
+        public AbstractBasicTower(Position pos, int damage, int radius, int delay, int cost, string towerName, List<IEnemy> enemyList)
         {
             Damage = damage;
             Radius = radius;
@@ -41,6 +41,6 @@ namespace tas.Filippo_Di_Pietro.ITower
 
         public Position Pos { get; }
 
-        List<IEnemy> VisibleEnemyList { get; }
+        public List<IEnemy> VisibleEnemyList { get; }
     }
 }

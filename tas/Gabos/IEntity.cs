@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace tas.Gabos
 {
-    internal interface IEntity
+    public interface IEntity
     {
 
         Position Position { get; }
