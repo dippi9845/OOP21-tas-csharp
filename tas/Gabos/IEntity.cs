@@ -9,9 +9,9 @@ namespace tas.Gabos
     internal interface IEntity
     {
 
-        Tuple<int, int> Position { get; }
+        Position Position { get; }
         
-        Tuple<int, int> BodyDimension { get; }
+        Position BodyDimension { get; }
 
         string EntityName { get; }
 
