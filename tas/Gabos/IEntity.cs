@@ -11,7 +11,7 @@ namespace tas.Gabos
 
         Position Position { get; }
         
-        Position BodyDimension { get; }
+        Tuple<int, int>  BodyDimension { get; }
 
         string EntityName { get; }
 
