@@ -1,10 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using tas.Gabos;
 
 namespace tas.Filippo_Di_Pietro.ITower
 {
-    public interface ITower
+    public interface ITower : IEntity
     {
+        new Tuple<int, int> BodyDimension => new Tuple<int, int>(100, 100);
+
+        Position GetPosition => Pos;
+
+        new string EntityName => TowerName;
+        
         public int Damage { get; }
 
         public int Radius { get; }
