@@ -15,11 +15,11 @@ namespace tas.Gabos
 
         bool IsDead();
 
-        double GetHealth();
+        double Health { get; }
 
-        int GetMoney();
+        int Money { get; }
 
-        int GetDamage();
+        int Damage { get; }
 
         bool IsPathCompleted();
 
