@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace tas.Gabos
 {
-    internal class Position
+    public class Position
     {
 
         private double _x;
