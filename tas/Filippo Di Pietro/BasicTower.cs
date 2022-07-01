@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using tas.Filippo_Di_Pietro;
 using tas.Gabos;
 
 namespace tas.Filippo_Di_Pietro
