@@ -41,7 +41,7 @@ namespace tas.Gabos.enemy
             Health = health;
             Money = money;
             Damage = damage;
-            _speed = speed / _gameSpecs.GetTickRate();
+            _speed = speed / _gameSpecs.TickRate;
             EntityName = enemyName;
         }
 
@@ -54,10 +54,10 @@ namespace tas.Gabos.enemy
 
                 if (Position.FindDistance(Position, nextPos) > _speed)
                 {
-                    double angle = Math.Atan2(nextPos.GetY() - Position.GetY(), nextPos.GetX() - Position.GetX());
-                    double newX = Position.GetX() + _speed * Math.Cos(angle);
-                    double newY = Position.GetY() + _speed * Math.Sin(angle);
-
+                    double angle = Math.Atan2(nextPos.Y - Position.Y, nextPos.Y - Position.Y);
+                    double newX = Position.X + _speed * Math.Cos(angle);
+                    double newY = Position.Y + _speed * Math.Sin(angle);
+                    
                     Position.SetPosition(newX, newY);
                     distanceToBeTraveled = 0;
                 }
