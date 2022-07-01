@@ -1,7 +1,7 @@
-﻿using tas.Gabos;
-using tas.Filippo_Di_Pietro;
+﻿using tas.Gabos.enemy;
 using System.Collections.Generic;
 using System;
+using tas.Gabos.utils;
 
 namespace tas.Filippo_Di_Pietro
 {
@@ -9,7 +9,7 @@ namespace tas.Filippo_Di_Pietro
     {
         private Towers() { }
 
-        static public Tuple<int, int> DEFAULTDIMENSION = new(100, 100);
+        static public Size DEFAULTDIMENSION = new Size(100, 100);
 
         public static bool IsInRange(Position x, Position y, int radius)
         {

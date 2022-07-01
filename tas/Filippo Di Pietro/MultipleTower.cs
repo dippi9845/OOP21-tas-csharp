@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using tas.Gabos;
+using tas.Gabos.enemy;
 
 namespace tas.Filippo_Di_Pietro
 {

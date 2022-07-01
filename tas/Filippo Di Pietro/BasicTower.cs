@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using tas.Gabos;
+using tas.Gabos.enemy;
+using tas.Gabos.utils;
 
 namespace tas.Filippo_Di_Pietro
 {
@@ -8,7 +10,7 @@ namespace tas.Filippo_Di_Pietro
     {
         public Position Position => Pos;
 
-        public Tuple<int, int> BodyDimension => Towers.DEFAULTDIMENSION;
+        Size IEntity.BodyDimension => Towers.DEFAULTDIMENSION;
 
         public string EntityName => TowerName;
 
