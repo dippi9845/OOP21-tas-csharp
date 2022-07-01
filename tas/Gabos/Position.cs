@@ -9,11 +9,11 @@ namespace tas.Gabos
     /// <summary>
     ///     Class that models a Position.
     /// </summary>
-    internal class Position
+    public class Position
     {
 
-        private double X { get; private set; }
-        private double Y { get; private set; }
+        public double X { get; private set; }
+        public double Y { get; private set; }
 
         /// <summary>
         ///     Constructor of the Position class.
