@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace tas.Gabos
+namespace tas.Gabos.enemy
 {
     internal class GenericEnemy : IEnemy
     {
@@ -47,16 +47,16 @@ namespace tas.Gabos
 
         public void MoveForward()
         {
-            double distanceToBeTraveled = this._speed;
-            while (distanceToBeTraveled >0 && (_nodesPosition.Count -1 > _reachedNode))
+            double distanceToBeTraveled = _speed;
+            while (distanceToBeTraveled > 0 && _nodesPosition.Count - 1 > _reachedNode)
             {
                 Position nextPos = _nodesPosition[_reachedNode + 1];
 
-                if (Position.FindDistance(Position, nextPos) > this._speed)
+                if (Position.FindDistance(Position, nextPos) > _speed)
                 {
                     double angle = Math.Atan2(nextPos.GetY() - Position.GetY(), nextPos.GetX() - Position.GetX());
-                    double newX = Position.GetX() + this._speed * Math.Cos(angle);
-                    double newY = Position.GetY() + this._speed * Math.Sin(angle);
+                    double newX = Position.GetX() + _speed * Math.Cos(angle);
+                    double newY = Position.GetY() + _speed * Math.Sin(angle);
 
                     Position.SetPosition(newX, newY);
                     distanceToBeTraveled = 0;
