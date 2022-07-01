@@ -56,5 +56,10 @@ namespace tas.Gabos
             Y = Y * dim.Item2 / componentDim.Item2;
         }
 
+        public override string ToString()
+        {
+            return X + " - " + Y;
+        }
+
     }
 }
