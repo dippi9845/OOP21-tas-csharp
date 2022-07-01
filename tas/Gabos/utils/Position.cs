@@ -26,6 +26,15 @@ namespace tas.Gabos
         }
 
         /// <summary>
+        ///     Constructor of the Position class.
+        /// </summary>
+        /// <param name="pos"> The position of the object.</param>
+        public Position(Position pos)
+        {
+            SetPosition(pos);
+        }
+
+        /// <summary>
         ///     Set the position for the object.
         /// </summary>
         /// <param name="x">The new x coordinate.</param>
