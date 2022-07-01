@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace tas.Gabos.enemy
 {
-    internal interface IEnemy : IEntity
     /// <summary>
     ///     Interfaces that models ana Enemy.
     /// </summary>
