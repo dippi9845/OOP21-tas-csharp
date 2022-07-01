@@ -25,8 +25,8 @@ namespace tas.Gabos.test
 			Position pos1 = new Position(10, 10);
 			Position pos2 = new Position(20, 20);
 			Position pos3 = new Position(10, 10);
-			IEnemy enemy1 = new GenericEnemy(new List<Position> { pos1, pos2 }, 1, 50, 10, 60, new Size(100, 100), "redEnemy");
-			IEnemy enemy2 = new GenericEnemy(new List<Position> { pos1, pos3 }, 1, 50, 10, 60, new Size(100, 100), "redEnemy");
+			IEnemy enemy1 = new GenericEnemy(new List<Position> { new Position(pos1), new Position(pos2) }, 1, 50, 10, 60, new Size(100, 100), "redEnemy");
+			IEnemy enemy2 = new GenericEnemy(new List<Position> { new Position(pos1), new Position(pos3) }, 1, 50, 10, 60, new Size(100, 100), "redEnemy");
 
 			enemy1.MoveForward();
 			enemy2.MoveForward();

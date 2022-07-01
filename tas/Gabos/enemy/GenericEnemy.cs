@@ -63,16 +63,16 @@ namespace tas.Gabos.enemy
         public void MoveForward()
         {
             double distanceToBeTraveled = _speed;
-            while (distanceToBeTraveled > 0 && _nodesPosition.Count - 1 > _reachedNode)
+            while (distanceToBeTraveled > 0 && (_nodesPosition.Count - 1 > _reachedNode))
             {
                 Position nextPos = _nodesPosition[_reachedNode + 1];
 
                 if (Position.FindDistance(Position, nextPos) > _speed)
                 {
-                    double angle = Math.Atan2(nextPos.Y - Position.Y, nextPos.Y - Position.Y);
+                    double angle = Math.Atan2(nextPos.Y - Position.Y, nextPos.X - Position.X);
                     double newX = Position.X + _speed * Math.Cos(angle);
                     double newY = Position.Y + _speed * Math.Sin(angle);
-                    
+
                     Position.SetPosition(newX, newY);
                     distanceToBeTraveled = 0;
                 }
