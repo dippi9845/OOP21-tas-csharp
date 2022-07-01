@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace tas.Gabos.enemy
 {
+    /// <summary>
+    ///     Class that implements an Enemy
+    /// </summary>
     internal class GenericEnemy : IEnemy
     {
         public Position Position { get; }
@@ -26,6 +29,17 @@ namespace tas.Gabos.enemy
 
         private GameSpecs _gameSpecs = new GameSpecs();
 
+        /// <summary>
+        ///     Constructor that creates a GenericEnemy
+        /// </summary>
+        /// <param name="nodesPosition"> The nodes that the enemy will have to travel.</param>
+        /// <param name="health"> The health of the enemy.</param>
+        /// <param name="money"> The money that the enemy can drop.</param>
+        /// <param name="damage"> The damage that the enemy can deal.</param>
+        /// <param name="speed"> The speed of the enemy (pixels/seconds).</param>
+        /// <param name="bodyDimension"> The dimension of the enemy.</param>
+        /// <param name="enemyName"> The name of the enemy.</param>
+        /// <exception cref="ArgumentException">If nodesPosition is empty.</exception>
         public GenericEnemy(List<Position> nodesPosition, double health, int money, int damage, double speed, Tuple<int, int> bodyDimension, string enemyName)
         {
             if (nodesPosition.Count == 0)
