@@ -14,7 +14,7 @@ namespace tas.Gabos.test
         public void TestGetPosition()
         {
             Position pos = new Position(10, 10);
-            IEnemy enemy = new GenericEnemy(new List<Position> { pos }, 1, 50, 10, 60, new Size(100, 100), "redEnemy");
+            IEnemy enemy = new GenericEnemy(new List<Position> { new Position(pos) }, 1, 50, 10, 60, new Size(100, 100), "redEnemy");
 
             Assert.AreEqual(pos.ToString(), enemy.Position.ToString());
         }
@@ -39,7 +39,7 @@ namespace tas.Gabos.test
 		public void TestDealDamage()
 		{
 			Position pos = new Position(10, 10);
-			IEnemy enemy = new GenericEnemy(new List<Position> { pos }, 1, 50, 10, 60, new Size(100, 100), "redEnemy");
+			IEnemy enemy = new GenericEnemy(new List<Position> { new Position(pos) }, 1, 50, 10, 60, new Size(100, 100), "redEnemy");
 			double maxHealth = enemy.Health;
 			double damage = 5;
 
@@ -52,7 +52,7 @@ namespace tas.Gabos.test
 		public void TestIsDead()
 		{
 			Position pos = new Position(10, 10);
-			IEnemy enemy = new GenericEnemy(new List<Position> { pos }, 1, 50, 10, 60, new Size(100, 100), "redEnemy");
+			IEnemy enemy = new GenericEnemy(new List<Position> { new Position(pos) }, 1, 50, 10, 60, new Size(100, 100), "redEnemy");
 
 			Assert.IsFalse(enemy.IsDead());
 
@@ -66,8 +66,8 @@ namespace tas.Gabos.test
 		{
 			Position pos1 = new Position(10, 10);
 			Position pos2 = new Position(20, 20);
-			IEnemy enemy1 = new GenericEnemy(new List<Position> { pos1 }, 1, 50, 10, 60, new Size(100, 100), "redEnemy");
-			IEnemy enemy2 = new GenericEnemy(new List<Position> { pos1, pos2 }, 1, 50, 10, 60, new Size(100, 100), "redEnemy");
+			IEnemy enemy1 = new GenericEnemy(new List<Position> { new Position(pos1) }, 1, 50, 10, 60, new Size(100, 100), "redEnemy");
+			IEnemy enemy2 = new GenericEnemy(new List<Position> { new Position(pos1), new Position(pos2) }, 1, 50, 10, 60, new Size(100, 100), "redEnemy");
 
 			Assert.IsFalse(enemy2.IsPathCompleted());
 			Assert.IsTrue(enemy1.IsPathCompleted());
