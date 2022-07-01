@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using tas.Gabos.utils;
 
 namespace tas.Gabos.enemy
 {
