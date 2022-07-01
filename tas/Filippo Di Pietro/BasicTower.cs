@@ -22,7 +22,7 @@ namespace tas.Filippo_Di_Pietro
             VisibleEnemyList = enemyList;
         }
 
-        protected abstract void attack();
+        protected abstract void Attack();
         public abstract void Compute();
 
         public int Damage
@@ -52,7 +52,7 @@ namespace tas.Filippo_Di_Pietro
 
         private IEnemy Target { get; set; }
 
-        protected override void attack()
+        protected override void Attack()
         {
             if (Target != null)
             {
