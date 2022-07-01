@@ -6,23 +6,40 @@ using System.Threading.Tasks;
 
 namespace tas.Gabos
 {
+    /// <summary>
+    ///     Class that models a Position.
+    /// </summary>
     internal class Position
     {
 
         private double X { get; private set; }
         private double Y { get; private set; }
 
+        /// <summary>
+        ///     Constructor of the Position class.
+        /// </summary>
+        /// <param name="x">The x coordinate.</param>
+        /// <param name="y">The y coordinate.</param>
         public Position(double x, double y)
         {
             SetPosition(x, y);
         }
 
+        /// <summary>
+        ///     Set the position for the object.
+        /// </summary>
+        /// <param name="x">The new x coordinate.</param>
+        /// <param name="y">The new y coordinate.</param>
         public void SetPosition(double x, double y)
         {
             X = x;
             Y = y;
         }
 
+        /// <summary>
+        ///    Set the position for the object.
+        /// </summary>
+        /// <param name="pos"> The new Position of the object.</param>
         public void SetPosition(Position pos)
         {
             SetPosition(pos.X, pos.Y);
