@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace tas.Gabos
 {
-    internal interface IEntity
     /// <summary>
     ///     An interface that models an Entity
     /// </summary>
