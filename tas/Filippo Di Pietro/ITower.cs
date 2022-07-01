@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using tas.Gabos;
 
-namespace tas.Filippo_Di_Pietro.Tower
+namespace tas.Filippo_Di_Pietro.ITower
 {
     public interface ITower : IEntity
     {
