@@ -43,14 +43,31 @@ namespace tas.Gabos
             Damage = damage;
             _speed = speed / _gameSpecs.GetTickRate();
             EntityName = enemyName;
-            
-            
-
         }
 
         public void MoveForward()
         {
-            throw new NotImplementedException();
+            double distanceToBeTraveled = this._speed;
+            while (distanceToBeTraveled >0 && (_nodesPosition.Count -1 > _reachedNode))
+            {
+                Position nextPos = _nodesPosition[_reachedNode + 1];
+
+                if (Position.FindDistance(Position, nextPos) > this._speed)
+                {
+                    double angle = Math.Atan2(nextPos.GetY() - Position.GetY(), nextPos.GetX() - Position.GetX());
+                    double newX = Position.GetX() + this._speed * Math.Cos(angle);
+                    double newY = Position.GetY() + this._speed * Math.Sin(angle);
+
+                    Position.SetPosition(newX, newY);
+                    distanceToBeTraveled = 0;
+                }
+                else
+                {
+                    distanceToBeTraveled -= Position.FindDistance(Position, nextPos);
+                    Position.SetPosition(nextPos);
+                    _reachedNode++;
+                }
+            }
         }
 
         public void DealDamage(double damage)
@@ -65,7 +82,7 @@ namespace tas.Gabos
 
         public bool IsPathCompleted()
         {
-            throw new NotImplementedException();
+            return _reachedNode + 1 >= _nodesPosition.Count;
         }
     }
 }
