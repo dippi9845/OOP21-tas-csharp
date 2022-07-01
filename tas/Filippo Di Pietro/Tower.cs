@@ -60,5 +60,21 @@ namespace tas.Filippo_Di_Pietro.ITower
         public IList<IEnemy> VisibleEnemyList { get; }
     }
 
-    
+    public class BasicTower : AbstractBasicTower
+    {
+        public BasicTower(Position pos, int damage, int radius, int delay, int cost, string towerName, IList<IEnemy> enemyList) : base(pos, damage, radius, delay, cost, towerName, enemyList)
+        {
+        }
+        private IEnemy Target { get; set; }
+
+        protected override void attack()
+        {
+            if (Target != null)
+            {
+                Target.DealDamage(this.Damage);
+            }
+        }
+
+
+    }
 }
