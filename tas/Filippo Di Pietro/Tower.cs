@@ -41,9 +41,11 @@ namespace tas.Filippo_Di_Pietro.ITower
 
         abstract protected void attack();
 
-        protected void increaseDamage(int amount) => Damage += amount;
-
-        public int Damage { get; protected set; }
+        public int Damage 
+        {
+            get => Damage;
+            protected set => Damage += value;
+        }
 
         public int Radius { get; }
 
