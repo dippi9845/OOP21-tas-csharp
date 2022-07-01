@@ -6,12 +6,6 @@ namespace tas.Filippo_Di_Pietro.ITower
 {
     public interface ITower : IEntity
     {
-        new Tuple<int, int> BodyDimension => new Tuple<int, int>(100, 100);
-
-        Position GetPosition => Pos;
-
-        new string EntityName => TowerName;
-        
         public int Damage { get; }
 
         public int Radius { get; }
@@ -27,6 +21,14 @@ namespace tas.Filippo_Di_Pietro.ITower
 
     public abstract class AbstractBasicTower : ITower
     {
+        public Position Position => Pos;
+
+        public Tuple<int, int> BodyDimension => new(100, 100);
+
+        public string EntityName => TowerName;
+
+
+
         public AbstractBasicTower(Position pos, int damage, int radius, int delay, int cost, string towerName, List<IEnemy> enemyList)
         {
             Damage = damage;
@@ -36,7 +38,12 @@ namespace tas.Filippo_Di_Pietro.ITower
             TowerName = towerName;
             VisibleEnemyList = enemyList;
         }
-        public int Damage { get; }
+
+        abstract protected void attack();
+
+        protected void increaseDamage(int amount) => Damage += amount;
+
+        public int Damage { get; protected set; }
 
         public int Radius { get; }
 
