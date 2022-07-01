@@ -37,5 +37,16 @@ namespace tas.Filippo_Di_Pietro
             }
             return null;
         }
+
+        public static IEnumerable<IEnemy> FindAll(Predicate<IEnemy> filter, IList<IEnemy> enemyList)
+        {
+            foreach(var enemy in enemyList)
+            {
+                if (filter.Invoke(enemy))
+                {
+                    yield return enemy;
+                }
+            }    
+        }
     }
 }
