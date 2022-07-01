@@ -13,9 +13,7 @@ namespace tas.Gabos.test
         public void TestGetPosition()
         {
             Position pos = new Position(10, 10);
-            List<Position> lPos = new List<Position>();
-            lPos.Add(pos);
-            IEnemy enemy = new GenericEnemy(lPos, 1, 50, 10, 60, new Size(100, 100), "redEnemy");
+            IEnemy enemy = new GenericEnemy(new List<Position> { pos }, 1, 50, 10, 60, new Size(100, 100), "redEnemy");
 
             Assert.AreEqual(pos.ToString(), enemy.Position.ToString());
         }
