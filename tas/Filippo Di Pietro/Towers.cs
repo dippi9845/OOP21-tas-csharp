@@ -1,5 +1,5 @@
 ﻿using tas.Gabos;
-using tas.Filippo_Di_Pietro.Tower;
+using tas.Filippo_Di_Pietro;
 using System.Collections.Generic;
 using System;
 
@@ -8,6 +8,8 @@ namespace tas.Filippo_Di_Pietro
     public sealed class Towers
     {
         private Towers() { }
+
+        static public Tuple<int, int> DEFAULTDIMENSION = new(100, 100);
 
         public static bool IsInRange(Position x, Position y, int radius)
         {
