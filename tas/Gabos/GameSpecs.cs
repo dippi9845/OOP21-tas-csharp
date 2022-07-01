@@ -6,18 +6,22 @@ using System.Threading.Tasks;
 
 namespace tas.Gabos
 {
-    internal class GameSpecs
+
+    /// <summary>
+    ///    Class that handles some game attributes.
+    /// </summary>
+    public class GameSpecs
     {
 
-        private int _tickRate;
+        public int TickRate { get; }
 
+        /// <summary>
+        ///     Constructor that sets up game attributes.
+        /// </summary>
         public GameSpecs()
         {
-            this._tickRate = 60;
+            TickRate = 60;
         }
-
-        public int GetTickRate() => this._tickRate;
-
 
     }
 }
