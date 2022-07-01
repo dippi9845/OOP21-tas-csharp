@@ -38,7 +38,7 @@ namespace tas.Filippo_Di_Pietro
 
     }
 
-    public class BasicMultipleTower : AbstractBasicTower
+    public class BasicMultipleTower : AbstractMultipleTower
     {
         public override void Compute()
         {
