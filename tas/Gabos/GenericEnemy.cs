@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace tas.Gabos
 {
@@ -14,14 +12,39 @@ namespace tas.Gabos
 
         public string EntityName { get; }
 
-        public double Health { get; }
+        public double Health { get; private set; }
 
         public int Money { get; }
 
         public int Damage { get; }
 
-        public GenericEnemy()
+        private List<Position> _nodesPosition;
+
+        private int _reachedNode;
+
+        private double _speed;
+
+        private GameSpecs _gameSpecs = new GameSpecs();
+
+        public GenericEnemy(List<Position> nodesPosition, double health, int money, int damage, double speed, Tuple<int, int> bodyDimension, string enemyName)
         {
+            if (nodesPosition.Count == 0)
+            {
+                throw new ArgumentException("nodesPosition is empty");
+            }
+
+            _nodesPosition = nodesPosition;
+            _reachedNode = 0;
+            Position = nodesPosition.First();
+
+            BodyDimension = bodyDimension;
+            Health = health;
+            Money = money;
+            Damage = damage;
+            _speed = speed / _gameSpecs.GetTickRate();
+            EntityName = enemyName;
+            
+            
 
         }
 
@@ -32,12 +55,12 @@ namespace tas.Gabos
 
         public void DealDamage(double damage)
         {
-            throw new NotImplementedException();
+            Health -= damage;
         }
 
         public bool IsDead()
         {
-            throw new NotImplementedException();
+            return Health <= 0;
         }
 
         public bool IsPathCompleted()
