@@ -9,11 +9,9 @@ namespace tas.Filippo_Di_Pietro
     {
         public Position Position => Pos;
 
-        public Tuple<int, int> BodyDimension => new(100, 100);
+        public Tuple<int, int> BodyDimension => Towers.DEFAULTDIMENSION;
 
         public string EntityName => TowerName;
-
-
 
         public AbstractBasicTower(Position pos, int damage, int radius, int delay, int cost, string towerName, IList<IEnemy> enemyList)
         {
