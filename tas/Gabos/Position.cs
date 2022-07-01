@@ -9,8 +9,8 @@ namespace tas.Gabos
     internal class Position
     {
 
-        private double _x;
-        private double _y;
+        private double X { get; private set; }
+        private double Y { get; private set; }
 
         public Position(double x, double y)
         {
@@ -19,28 +19,24 @@ namespace tas.Gabos
 
         public void SetPosition(double x, double y)
         {
-            _x = x;
-            _y = y;
+            X = x;
+            Y = y;
         }
 
         public void SetPosition(Position pos)
         {
-            SetPosition(pos.GetX(), pos.GetY());
+            SetPosition(pos.X, pos.Y);
         }
-
-        public double GetX() => _x;
-
-        public double GetY() => _y;
 
         public static double FindDistance(Position pos1, Position pos2)
         {
-            return Math.Sqrt(Math.Pow((pos2.GetX() - pos1.GetX()), 2) + Math.Pow((pos2.GetY() - pos1.GetY()), 2));
+            return Math.Sqrt(Math.Pow((pos2.X - pos1.X), 2) + Math.Pow((pos2.Y - pos1.Y), 2));
         }
 
         public void PositionConverter(Tuple<int, int> dim, Tuple<int, int> componentDim)
         {
-            _x = GetX() * dim.Item1 / componentDim.Item1;
-            _y = GetY() * dim.Item2 / componentDim.Item2;
+            X = X * dim.Item1 / componentDim.Item1;
+            Y = Y * dim.Item2 / componentDim.Item2;
         }
 
     }
