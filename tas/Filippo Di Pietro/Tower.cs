@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using tas.Gabos;
 
-namespace tas.Filippo_Di_Pietro.ITower
+namespace tas.Filippo_Di_Pietro.Tower
 {
     public interface ITower : IEntity
     {
@@ -17,6 +17,8 @@ namespace tas.Filippo_Di_Pietro.ITower
         public string TowerName { get; }
 
         public Position Pos { get; }
+
+        void Compute();
     }
 
     public abstract class AbstractBasicTower : ITower
@@ -40,6 +42,7 @@ namespace tas.Filippo_Di_Pietro.ITower
         }
 
         abstract protected void attack();
+        public abstract void Compute();
 
         public int Damage 
         {
@@ -75,6 +78,25 @@ namespace tas.Filippo_Di_Pietro.ITower
             }
         }
 
+        private bool IsTargetValid()
+        {
+            return Towers.IsTargetInRange(this, Target) && !Target.IsDead();
+        }
 
+        public override void Compute()
+        {
+            if (Target != null && IsTargetValid())
+            {
+                Target.DealDamage(Damage);
+            }
+            else
+            {
+                IEnemy target = Towers.FindFisrtInRange(this, VisibleEnemyList);
+                if (target != null)
+                {
+                    Target = target;
+                }
+            }
+        }
     }
 }
