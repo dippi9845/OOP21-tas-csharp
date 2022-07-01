@@ -19,8 +19,8 @@ namespace tas.Gabos
 
         public void SetPosition(double x, double y)
         {
-            this._x = x;
-            this._y = y;
+            _x = x;
+            _y = y;
         }
 
         public void SetPosition(Position pos)
@@ -39,8 +39,8 @@ namespace tas.Gabos
 
         public void PositionConverter(Tuple<int, int> dim, Tuple<int, int> componentDim)
         {
-            this._x = GetX() * dim.Item1 / componentDim.Item1;
-            this._y = GetY() * dim.Item2 / componentDim.Item2;
+            _x = GetX() * dim.Item1 / componentDim.Item1;
+            _y = GetY() * dim.Item2 / componentDim.Item2;
         }
 
     }
