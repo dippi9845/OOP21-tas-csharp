@@ -1,3 +1,4 @@
+﻿using tas.Gabos.utils;
 
 namespace tas.Gabos
 {
@@ -15,7 +16,7 @@ namespace tas.Gabos
         /// <summary>
         ///     The body dimension of the entity.
         /// </summary>
-        Tuple<int, int>  BodyDimension { get; }
+        Size BodyDimension { get; }
 
         /// <summary>
         ///     The name of the entity

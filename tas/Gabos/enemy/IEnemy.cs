@@ -1,3 +1,4 @@
+﻿namespace tas.Gabos.enemy
 {
     /// <summary>
     ///     Interfaces that models ana Enemy.

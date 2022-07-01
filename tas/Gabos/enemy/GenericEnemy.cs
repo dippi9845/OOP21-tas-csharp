@@ -12,7 +12,7 @@ namespace tas.Gabos.enemy
     {
         public Position Position { get; }
 
-        public Tuple<int, int> BodyDimension { get; }
+        public Size BodyDimension { get; }
 
         public string EntityName { get; }
 
@@ -41,7 +41,7 @@ namespace tas.Gabos.enemy
         /// <param name="bodyDimension"> The dimension of the enemy.</param>
         /// <param name="enemyName"> The name of the enemy.</param>
         /// <exception cref="ArgumentException">If nodesPosition is empty.</exception>
-        public GenericEnemy(List<Position> nodesPosition, double health, int money, int damage, double speed, Tuple<int, int> bodyDimension, string enemyName)
+        public GenericEnemy(List<Position> nodesPosition, double health, int money, int damage, double speed, Size bodyDimension, string enemyName)
         {
             if (nodesPosition.Count == 0)
             {
