@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace tas.Gabos
+namespace tas.Gabos.utils
 {
 
     /// <summary>
