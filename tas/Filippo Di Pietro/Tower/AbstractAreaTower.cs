@@ -8,10 +8,50 @@ namespace tas.Filippo_Di_Pietro.Tower
     {
         private int AttackRadius { get; }
 
-        public AbstractAreaTower(Position pos, int damage, int radius, int delay, int cost, string towerName, IList<IEnemy> enemyList, IList<IEnemy> enemyList1, int maxTarget, int attackRadius)
-            : base(pos, damage, radius, delay, cost, towerName, enemyList, enemyList, maxTarget)
-        {
+        protected Position TargetPosition { get; set; }
 
+        public AbstractAreaTower(Position pos, int damage, int radius, int delay, int cost, string towerName, IList<IEnemy> enemyList, int maxTarget, int attackRadius)
+            : base(pos, damage, radius, delay, cost, towerName, enemyList, maxTarget)
+        {
+            AttackRadius = attackRadius;
         }
+
+        protected override bool IsValidTarget(IEnemy e) => Towers.IsInRange(e.Position, TargetPosition, AttackRadius);
+
+        abstract protected IEnemy FindFirstTarget();
+
+        private void AddNearbyTarget()
+        {
+            IEnumerable<IEnemy> toAdd = Towers.FindAll(IsValidTarget, VisibleEnemyList);
+            foreach(IEnemy enemy in toAdd)
+            {
+                if (!IsFull())
+                {
+                    AddTarget(enemy);
+                }
+            }
+        }
+
+        public override void Compute()
+        {
+            IEnemy target = FindFirstTarget();
+            if (target != null)
+            {
+                TargetPosition = target.Position;
+                AddNearbyTarget();
+                Attack();
+                Clear();
+            }
+        }
+    }
+
+    public class TeslaTower : AbstractAreaTower
+    {
+        public TeslaTower(Position pos, int damage, int radius, int delay, int cost, string towerName, IList<IEnemy> enemyList, int maxTarget, int attackRadius)
+            : base(pos, damage, radius, delay, cost, towerName, enemyList, maxTarget, attackRadius)
+        {
+        }
+
+        protected override IEnemy FindFirstTarget() => Towers.FindFisrtInRange(this, VisibleEnemyList);
     }
 }
