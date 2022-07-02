@@ -16,6 +16,7 @@ namespace tas.Filippo_Di_Pietro
 
         public AbstractBasicTower(Position pos, int damage, int radius, int delay, int cost, string towerName, IList<IEnemy> enemyList)
         {
+            Pos = pos;
             Damage = damage;
             Radius = radius;
             Delay = delay;
@@ -27,10 +28,11 @@ namespace tas.Filippo_Di_Pietro
         protected abstract void Attack();
         public abstract void Compute();
 
-        public int Damage
+        public int Damage { get; private set; }
+
+        protected void IncreaseDamage(int amount)
         {
-            get => Damage;
-            protected set => Damage += value;
+            Damage += amount;
         }
 
         public int Radius { get; }
@@ -48,7 +50,8 @@ namespace tas.Filippo_Di_Pietro
 
     public class BasicTower : AbstractBasicTower
     {
-        public BasicTower(Position pos, int damage, int radius, int delay, int cost, string towerName, IList<IEnemy> enemyList) : base(pos, damage, radius, delay, cost, towerName, enemyList)
+        public BasicTower(Position pos, int damage, int radius, int delay, int cost, string towerName, IList<IEnemy> enemyList)
+            : base(pos, damage, radius, delay, cost, towerName, enemyList)
         {
             Target = null;
         }
