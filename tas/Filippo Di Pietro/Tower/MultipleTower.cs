@@ -51,9 +51,6 @@ namespace tas.Filippo_Di_Pietro
             throw new System.NotImplementedException();
         }
 
-        protected override bool IsValidTarget(IEnemy e)
-        {
-            throw new System.NotImplementedException();
-        }
+        protected override bool IsValidTarget(IEnemy e) => Towers.IsTargetInRange(this, e) && !IsFull() && !Contains(e);
     }
 }
