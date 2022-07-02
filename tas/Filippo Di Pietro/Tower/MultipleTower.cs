@@ -10,7 +10,7 @@ namespace tas.Filippo_Di_Pietro
 
         protected int MaxTarget { get; }
 
-        public AbstractMultipleTower(Position pos, int damage, int radius, int delay, int cost, string towerName, IList<IEnemy> enemyList, IList<IEnemy> enemyList1, int maxTarget)
+        public AbstractMultipleTower(Position pos, int damage, int radius, int delay, int cost, string towerName, IList<IEnemy> enemyList, int maxTarget)
             : base(pos, damage, radius, delay, cost, towerName, enemyList)
         {
             MaxTarget = maxTarget;
@@ -42,7 +42,7 @@ namespace tas.Filippo_Di_Pietro
     public class BasicMultipleTower : AbstractMultipleTower
     {
         public BasicMultipleTower(Position pos, int damage, int radius, int delay, int cost, string towerName, IList<IEnemy> enemyList, int maxTarget)
-            : base(pos, damage, radius, delay, cost, towerName, enemyList, enemyList, maxTarget)
+            : base(pos, damage, radius, delay, cost, towerName, enemyList, maxTarget)
         {
         }
 
