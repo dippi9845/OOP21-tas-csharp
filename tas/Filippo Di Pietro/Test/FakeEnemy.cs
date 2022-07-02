@@ -22,7 +22,7 @@ namespace tas.Filippo_Di_Pietro.Test
 
         public int Damage { get; }
 
-        public Position Position { get; }
+        public Position Position { get; set; }
 
         public Size BodyDimension { get; }
 
