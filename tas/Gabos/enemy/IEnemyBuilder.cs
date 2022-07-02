@@ -1,6 +1,10 @@
 ﻿namespace tas.Gabos.enemy
 {
-    internal interface IEnemyBuilder
+
+	/// <summary>
+	///		An interface for an enemy builder.
+	/// </summary>
+	public interface IEnemyBuilder
     {
 
         /// <summary>
