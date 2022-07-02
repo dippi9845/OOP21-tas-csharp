@@ -31,7 +31,7 @@ namespace tas.Filippo_Di_Pietro
         {
             foreach (var enemy in enemyList)
             {
-                if (filter.Invoke(enemy))
+                if (filter(enemy))
                 {
                     return enemy;
                 }
@@ -43,7 +43,7 @@ namespace tas.Filippo_Di_Pietro
         {
             foreach(var enemy in enemyList)
             {
-                if (filter.Invoke(enemy))
+                if (filter(enemy))
                 {
                     yield return enemy;
                 }
