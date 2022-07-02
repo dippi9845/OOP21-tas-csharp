@@ -1,10 +1,10 @@
 ﻿namespace tas.Gabos.enemy
 {
 
-	/// <summary>
-	///		An interface for an enemy builder.
-	/// </summary>
-	public interface IEnemyBuilder
+    /// <summary>
+    ///		An interface for an enemy builder.
+    /// </summary>
+    public interface IEnemyBuilder
     {
 
         /// <summary>
@@ -13,17 +13,17 @@
 		/// <returns> The red enemy.</returns>
 		IEnemy SpawnRedEnemy();
 
-		/// <summary>
-		///		Returns a green enemy.
-		/// </summary>
-		/// <returns> The green enemy.</returns>
-		IEnemy SpawnGreenEnemy();
+        /// <summary>
+        ///		Returns a green enemy.
+        /// </summary>
+        /// <returns> The green enemy.</returns>
+        IEnemy SpawnGreenEnemy();
 
-		/// <summary>
-		///		Returns a pink enemy.
-		/// </summary>
-		/// <returns> The pink enemy.</returns>
-		IEnemy SpawnPinkEnemy();
-        
-	}
+        /// <summary>
+        ///		Returns a pink enemy.
+        /// </summary>
+        /// <returns> The pink enemy.</returns>
+        IEnemy SpawnPinkEnemy();
+
+    }
 }
