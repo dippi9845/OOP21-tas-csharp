@@ -13,6 +13,9 @@ namespace tas.Gabos.enemy
 
         private IList<Position> _nodesPosition;
 
+        private Dictionary<string, Dictionary<string, string>> _enemies =
+            new Dictionary<string, Dictionary<string, string>>();
+
         /// <summary>
         ///     Constructor that sets up the builder.
         /// </summary>
@@ -26,6 +29,45 @@ namespace tas.Gabos.enemy
             }
 
             _nodesPosition = nodesPosition;
+
+            EnemyDictSetup();
+        }
+
+        /// <summary>
+        ///     Sets up the enemy dictionary.
+        /// </summary>
+        private void EnemyDictSetup()
+        {
+            Dictionary<string, string> redEnemy = new Dictionary<string, string>() {
+                { "health", "800" },
+                { "money", "50" },
+                { "damage", "10" },
+                { "Speed", "60" },
+                { "width", "100" },
+                { "height", "100" },
+                { "name", "RedEnemy" }
+            };
+            Dictionary<string, string> greenEnemy = new Dictionary<string, string>() {
+                { "health", "8000" },
+                { "money", "100" },
+                { "damage", "40" },
+                { "Speed", "30" },
+                { "width", "100" },
+                { "height", "100" },
+                { "name", "GreenEnemy" }
+            };
+            Dictionary<string, string> pinkEnemy = new Dictionary<string, string>() {
+                { "health", "2200" },
+                { "money", "100" },
+                { "damage", "20" },
+                { "Speed", "90" },
+                { "width", "100" },
+                { "height", "100" },
+                { "name", "PinkEnemy" }
+            };
+            _enemies.Add("RedEnemy", redEnemy);
+            _enemies.Add("GreenEnemy", greenEnemy);
+            _enemies.Add("PinkEnemy", pinkEnemy);
         }
 
         /// <summary>
