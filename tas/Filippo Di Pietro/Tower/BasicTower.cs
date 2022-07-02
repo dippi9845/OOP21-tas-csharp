@@ -50,6 +50,7 @@ namespace tas.Filippo_Di_Pietro
     {
         public BasicTower(Position pos, int damage, int radius, int delay, int cost, string towerName, IList<IEnemy> enemyList) : base(pos, damage, radius, delay, cost, towerName, enemyList)
         {
+            Target = null;
         }
 
         private IEnemy Target { get; set; }
