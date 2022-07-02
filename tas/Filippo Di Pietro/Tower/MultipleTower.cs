@@ -6,9 +6,9 @@ namespace tas.Filippo_Di_Pietro
 {
     public abstract class AbstractMultipleTower : AbstractBasicTower
     {
-        private List<IEnemy> Targets { get; }
+        protected List<IEnemy> Targets { get; }
 
-        private int MaxTarget { get; }
+        protected int MaxTarget { get; }
 
         public AbstractMultipleTower(Position pos, int damage, int radius, int delay, int cost, string towerName, IList<IEnemy> enemyList, IList<IEnemy> enemyList1, int maxTarget)
             : base(pos, damage, radius, delay, cost, towerName, enemyList)
@@ -48,7 +48,28 @@ namespace tas.Filippo_Di_Pietro
 
         public override void Compute()
         {
-            throw new System.NotImplementedException();
+            IEnumerable<IEnemy> toRemove = Towers.FindAll(x => !Towers.IsTargetInRange(this, x) || x.IsDead(), Targets);
+            
+            foreach(IEnemy enemy in toRemove)
+            {
+                Remove(enemy);
+            }
+
+            if (!IsFull())
+            {
+                IEnumerable<IEnemy> toAdd = Towers.FindAll(IsValidTarget, VisibleEnemyList);
+
+                foreach(IEnemy enemy in toAdd)
+                {
+                    if (!IsFull())
+                    {
+                        AddTarget(enemy);
+                    }
+                }
+            }
+            
+            this.Attack();
+
         }
 
         protected override bool IsValidTarget(IEnemy e) => Towers.IsTargetInRange(this, e) && !IsFull() && !Contains(e);
