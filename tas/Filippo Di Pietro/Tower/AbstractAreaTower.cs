@@ -45,9 +45,9 @@ namespace tas.Filippo_Di_Pietro.Tower
         }
     }
 
-    public class TeslaTower : AbstractAreaTower
+    public class BasicAreaTower : AbstractAreaTower
     {
-        public TeslaTower(Position pos, int damage, int radius, int delay, int cost, string towerName, IList<IEnemy> enemyList, int maxTarget, int attackRadius)
+        public BasicAreaTower(Position pos, int damage, int radius, int delay, int cost, string towerName, IList<IEnemy> enemyList, int maxTarget, int attackRadius)
             : base(pos, damage, radius, delay, cost, towerName, enemyList, maxTarget, attackRadius)
         {
         }
