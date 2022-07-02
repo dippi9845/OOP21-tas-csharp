@@ -62,10 +62,7 @@ namespace tas.Filippo_Di_Pietro
             }
         }
 
-        private bool IsTargetValid()
-        {
-            return Towers.IsTargetInRange(this, Target) && !Target.IsDead();
-        }
+        private bool IsTargetValid() => Towers.IsTargetInRange(this, Target) && !Target.IsDead();
 
         public override void Compute()
         {
