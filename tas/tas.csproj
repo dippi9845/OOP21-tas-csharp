@@ -12,4 +12,8 @@
     <PackageReference Include="Selenium.WebDriver" Version="4.3.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Filippo Di Pietro\Test\" />
+  </ItemGroup>
+
 </Project>
