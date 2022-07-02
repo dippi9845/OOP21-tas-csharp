@@ -94,20 +94,17 @@ namespace tas.Gabos.enemy
 
         public IEnemy SpawnRedEnemy()
         {
-            // to be implemented
-            throw new NotImplementedException();
+            return SpawnGenericEnemy(_enemies["RedEnemy"]);
         }
 
         public IEnemy SpawnGreenEnemy()
         {
-            // to be implemented
-            throw new NotImplementedException();
+            return SpawnGenericEnemy(_enemies["GreenEnemy"]);
         }
 
         public IEnemy SpawnPinkEnemy()
         {
-            // to be implemented
-            throw new NotImplementedException();
+            return SpawnGenericEnemy(_enemies["PinkEnemy"]);
         }
 
     }
