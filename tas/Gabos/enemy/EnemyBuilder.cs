@@ -74,10 +74,22 @@ namespace tas.Gabos.enemy
         ///     Generates an enemy by the given stats
         /// </summary>
         /// <returns> The requested enemy.</returns>
-        private IEnemy SpawnGenericEnemy()
+        /// <param name="eStats"></param>
+        /// <returns></returns>
+        private IEnemy SpawnGenericEnemy(Dictionary<string, string> eStats)
         {
-            // to be implemented
-            throw new NotImplementedException();
+            //get data from the dictionary and create a GenericEnemy
+            return new GenericEnemy(
+                _nodesPosition,
+                double.Parse(eStats["health"]),
+                int.Parse(eStats["money"]),
+                int.Parse(eStats["damage"]),
+                double.Parse(eStats["Speed"]),
+                new Size(
+                    int.Parse(eStats["width"]),
+                    int.Parse(eStats["height"])),
+                eStats["name"]
+            );
         }
 
         public IEnemy SpawnRedEnemy()
