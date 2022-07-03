@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using NUnit.Framework;
-using tas.Gabos.utils;
 using tas.Gabos.enemy;
 
 namespace tas.Gabos.test
@@ -21,22 +19,24 @@ namespace tas.Gabos.test
             // get all EnemyBuilder class public methods
             foreach (var method in typeof(EnemyBuilder).GetMethods())
             {
-                if (method.IsPublic)
+                if (!method.IsPublic)
                 {
-                    if (method.Name.StartsWith("Spawn"))
-                    {
-                        for (int i = 0; i < enemiesNumber; i++)
-                        {
-                            enemiesList.Add((IEnemy)method.Invoke(enemyBuilder, new object[] { enemiesTypeNumber }));
-                        }
-                        enemiesList.Add();
-                        enemiesTypeNumber++;
-                        Console.WriteLine(enemiesTypeNumber);
-                    }
+                    continue;
                 }
+                if (!method.Name.StartsWith("Spawn"))
+                {
+                    continue;
+                }
+                
+                for (int i = 0; i < enemiesNumber; i++)
+                {
+                    IEnemy e = (IEnemy)method.Invoke(enemyBuilder, null);
+                    enemiesList.Add(e);
+                }
+                enemiesTypeNumber++;
             }
 
-            Assert.Equals(enemiesList.Count, enemiesNumber * enemiesTypeNumber);
+            Assert.AreEqual(enemiesList.Count, enemiesNumber * enemiesTypeNumber);
 
         }
 
