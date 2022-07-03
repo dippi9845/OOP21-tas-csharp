@@ -4,13 +4,13 @@ using tas.Gabos.enemy;
 
 namespace tas.Filippo_Di_Pietro.Tower
 {
-    public abstract class AbstractAreaTower : AbstractMultipleTower
+    public abstract class AreaTower : AbstractMultipleTower
     {
         private int AttackRadius { get; }
 
         protected Position TargetPosition { get; set; }
 
-        public AbstractAreaTower(Position pos, int damage, int radius, int delay, int cost, string towerName, IList<IEnemy> enemyList, int maxTarget, int attackRadius)
+        public AreaTower(Position pos, int damage, int radius, int delay, int cost, string towerName, IList<IEnemy> enemyList, int maxTarget, int attackRadius)
             : base(pos, damage, radius, delay, cost, towerName, enemyList, maxTarget)
         {
             AttackRadius = attackRadius;
@@ -45,7 +45,7 @@ namespace tas.Filippo_Di_Pietro.Tower
         }
     }
 
-    public class BasicAreaTower : AbstractAreaTower
+    public class BasicAreaTower : AreaTower
     {
         public BasicAreaTower(Position pos, int damage, int radius, int delay, int cost, string towerName, IList<IEnemy> enemyList, int maxTarget, int attackRadius)
             : base(pos, damage, radius, delay, cost, towerName, enemyList, maxTarget, attackRadius)
