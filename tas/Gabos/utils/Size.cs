@@ -1,12 +1,12 @@
 ﻿namespace tas.Gabos.utils
 {
-    
+
     /// <summary>
     ///     Class that handles a size.
     /// </summary>
     public class Size
     {
-        
+
         /// <summary>
         ///     The width of the size.
         /// </summary>

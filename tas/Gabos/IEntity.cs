@@ -12,7 +12,7 @@ namespace tas.Gabos
         ///     The position of the entity.
         /// </summary>
         Position Position { get; }
-        
+
         /// <summary>
         ///     The body dimension of the entity.
         /// </summary>
