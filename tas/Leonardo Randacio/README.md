@@ -1,0 +1,1 @@
+Per il task C# ho deciso di riscrivere la mia parte di model, ovvero le classi MenuModel e MenuModelImpl. Creo anche una classe FakeJSON per simulare l'interazione con il json'
